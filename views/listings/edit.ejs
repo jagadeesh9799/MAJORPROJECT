@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <h3>Edit your Listing</h3>
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3"> 
+            <label for="title" class="form-label">Title</label>
+        <!-- here we are creating the listing object which we can use directly in the backend -->
+            <input name="listing[title]" placeholder="<%=listing.title%>" type="text" class="form-control" required>
+            <div class="valid-feedback">Title looks Prefect!</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+        <!-- here we are creating the listing object which we can use directly in the backend -->
+            <textarea name="listing[description]" placeholder="<%=listing.description%>" type="text" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter a short description about listing</div>
+        </div>
+        <div class="mb-3" >
+            <label  class="form-label">Origina Listing Image</label>
+            <img style="height:300px;width:300px;filter:blur(2px)" src="<%=listing.Image.url%>">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload New Listing Image</label>
+            <input name="listing[Image]" type="file" class="form-control"> 
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+            <!-- here we are creating the listing object which we can use directly in the backend -->
+                <input name="listing[price]" placeholder="<%=listing.price%>" type="number" class="form-control" required>
+                <div class="invalid-feedback">Price should be Valid</div>
+            </div>
+            <div  class="mb-3 col-md-8">
+                <label for="location" class="form-label">Location</label>
+            <!-- here we are creating the listing object which we can use directly in the backend -->
+                <input name="listing[location]" placeholder="<%=listing.location%>" type="text" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid Location</div>
+            </div>
+        </div>
+       
+        <div class="mb-3">
+            <label for="country" class="form-label">Country</label>
+        <!-- here we are creating the listing object which we can use directly in the backend -->
+            <input name="listing[country]" placeholder="<%=listing.country%>" type="text" class="form-control" required>
+            <div class="invalid-feedback">Country name should be valid</div>
+        </div>
+    
+        <button class="btn btn-dark edit-btn mt-3 mb-3">Edit your Listing</button>
+    </form>
+        </div>
+    </div>
+    
+</body>
+</html>
